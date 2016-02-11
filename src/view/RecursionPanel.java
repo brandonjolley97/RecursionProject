@@ -66,6 +66,18 @@ public class RecursionPanel extends JPanel
 				}
 			}
 		});
+		
+		factorialButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userInput = inputField.getText();
+				if(checkInput(userInput))
+				{
+					resultsArea.append(baseController.doFactorial(userInput));
+				}
+			}
+		});
 	}
 	
 	private boolean checkInput(String input)

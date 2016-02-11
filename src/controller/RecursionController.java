@@ -31,4 +31,11 @@ public class RecursionController
 		
 		return calculatedValue;
 	}
+	
+	public String doFactorial(String inputValue)
+	{
+		calculatedValue = "The factorial of " + inputValue + " is " + Integer.toString(mathTool.getFactorialNumber(Integer.parseInt(inputValue)));
+		
+		return calculatedValue;
+	}
 }

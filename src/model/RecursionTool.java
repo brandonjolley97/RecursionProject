@@ -20,8 +20,24 @@ public class RecursionTool
 		{
 			return getFibNum(position - 1) + getFibNum(position - 2);
 		}
-		
-		
-		
 	}
+	
+		public int getFactorialNumber(int position)
+		{
+			//Defensive code against user evilness
+			if(position < 0)
+			{
+				return Integer.MIN_VALUE;
+			}
+			
+			if(position == 0)
+			{
+				return 1;
+			}
+			else
+			{
+				return position * getFactorialNumber(position - 1);
+			}
+		}
+		
 }
