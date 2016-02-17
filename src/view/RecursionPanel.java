@@ -1,6 +1,8 @@
 package view;
 
 import controller.RecursionController;
+import model.CodeTimer;
+
 
 import java.awt.event.*;
 import java.awt.Color;
@@ -14,6 +16,7 @@ public class RecursionPanel extends JPanel
 	private JButton factorialButton;
 	private JTextField inputField;
 	private JTextArea resultsArea;
+	private JTextArea timerLabel;
 	
 	public RecursionPanel(RecursionController baseController)
 	{
@@ -23,6 +26,11 @@ public class RecursionPanel extends JPanel
 		factorialButton = new JButton("Get n");
 		inputField = new JTextField(20);
 		resultsArea = new JTextArea(10, 20);
+		timerLabel = new JTextArea();
+		timerLabel.setRows(10);
+		timerLabel.setColumns(13);
+		
+		
 		
 		setupPanel();
 		setupLayout();
@@ -35,6 +43,7 @@ public class RecursionPanel extends JPanel
 		this.add(fibonacciButton);
 		this.add(factorialButton);
 		this.add(inputField);
+		this.add(timerLabel);
 		this.add(resultsArea);
 		this.setBackground(Color.BLUE);
 		resultsArea.setWrapStyleWord(true);
@@ -44,13 +53,16 @@ public class RecursionPanel extends JPanel
 	}
 	private void setupLayout()
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, resultsArea, 6, SpringLayout.SOUTH, fibonacciButton);
+		baseLayout.putConstraint(SpringLayout.WEST, resultsArea, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, timerLabel, 6, SpringLayout.SOUTH, fibonacciButton);
+		baseLayout.putConstraint(SpringLayout.WEST, timerLabel, 6, SpringLayout.EAST, resultsArea);
+		baseLayout.putConstraint(SpringLayout.EAST, timerLabel, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, fibonacciButton, 6, SpringLayout.SOUTH, inputField);
 		baseLayout.putConstraint(SpringLayout.WEST, fibonacciButton, 48, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, factorialButton, 182, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, factorialButton, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, resultsArea, 6, SpringLayout.SOUTH, fibonacciButton);
-		baseLayout.putConstraint(SpringLayout.WEST, resultsArea, 93, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, inputField, 77, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, fibonacciButton, 6, SpringLayout.SOUTH, inputField);
 		baseLayout.putConstraint(SpringLayout.NORTH, inputField, 10, SpringLayout.NORTH, this);
 	}
 	private void setupListeners()
@@ -63,6 +75,7 @@ public class RecursionPanel extends JPanel
 				if(checkInput(userInput))
 				{
 					resultsArea.setText(baseController.doFibonacci(userInput));
+					timerLabel.setText(baseController.timingInfo());
 				}
 			}
 		});
@@ -75,6 +88,7 @@ public class RecursionPanel extends JPanel
 				if(checkInput(userInput))
 				{
 					resultsArea.append(baseController.doFactorial(userInput));
+					timerLabel.setText(baseController.timingInfo());
 				}
 			}
 		});

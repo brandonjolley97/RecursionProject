@@ -1,6 +1,8 @@
 package controller;
 
 import model.RecursionTool;
+import model.CodeTimer;
+
 import view.*;
 
 public class RecursionController 
@@ -8,6 +10,8 @@ public class RecursionController
 	private RecursionTool mathTool;
 	private RecursionFrame baseFrame;
 	private String calculatedValue;
+	private String myTimer;
+	private long nanoTime = 0;
 	
 	public RecursionController()
 	{
@@ -37,5 +41,10 @@ public class RecursionController
 		calculatedValue = "The factorial of " + inputValue + " is " + Integer.toString(mathTool.getFactorialNumber(Integer.parseInt(inputValue)));
 		
 		return calculatedValue;
+	}
+	
+	public String timingInfo()
+	{
+		return myTimer.toString();
 	}
 }

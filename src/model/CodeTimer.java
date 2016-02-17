@@ -25,5 +25,19 @@ public class CodeTimer
 	{
 		this.executionTime = 0;
 	}
+
+	public long getExecutionTime() 
+	{
+		return executionTime;
+	}
+	
+	public String toString()
+	{
+		String timerDescription = "Current execution time is: " + this.executionTime + " in nanoseconds.";
+		
+		return timerDescription;
+	}
+	
+	
 	
 }

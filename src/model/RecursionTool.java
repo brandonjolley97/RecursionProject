@@ -3,6 +3,7 @@ package model;
 public class RecursionTool 
 {
 	
+	
 	public int getFibNum(int position)
 	{
 		//Defensive code against user evilness
