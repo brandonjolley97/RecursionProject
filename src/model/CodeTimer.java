@@ -2,13 +2,14 @@ package model;
 
 public class CodeTimer 
 {
-	
-	
 	private long executionTime;
+	public CodeTimer myTimer;
+	
 	
 	public CodeTimer()
 	{
 		this.executionTime = 0;
+		myTimer = new CodeTimer();
 	}
 	
 	public void startTimer()

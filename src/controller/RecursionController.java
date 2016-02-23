@@ -10,8 +10,8 @@ public class RecursionController
 	private RecursionTool mathTool;
 	private RecursionFrame baseFrame;
 	private String calculatedValue;
-	private String myTimer;
 	private long nanoTime = 0;
+	private CodeTimer myTimer;
 	
 	public RecursionController()
 	{
@@ -31,7 +31,11 @@ public class RecursionController
 	
 	public String doFibonacci(String inputValue)
 	{
+		myTimer.startTimer();
+		
 		calculatedValue = "The Fibonacci sequence number of " + inputValue + " is " + Integer.toString(mathTool.getFibNum(Integer.parseInt(inputValue)));
+		
+		myTimer.stopTimer();
 		
 		return calculatedValue;
 	}
