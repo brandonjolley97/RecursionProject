@@ -9,13 +9,14 @@ public class RecursionController
 {
 	private RecursionTool mathTool;
 	private RecursionFrame baseFrame;
+	private CodeTimer recursionTimer;
 	private String calculatedValue;
-	private String myTimer;
 	private long nanoTime = 0;
 	
 	public RecursionController()
 	{
 		mathTool = new RecursionTool();
+		recursionTimer = new CodeTimer();
 		baseFrame = new RecursionFrame(this);
 	}
 	
@@ -31,20 +32,24 @@ public class RecursionController
 	
 	public String doFibonacci(String inputValue)
 	{
+		recursionTimer.startTimer();
 		calculatedValue = "The Fibonacci sequence number of " + inputValue + " is " + Integer.toString(mathTool.getFibNum(Integer.parseInt(inputValue)));
+		recursionTimer.stopTimer();
 		
 		return calculatedValue;
 	}
 	
 	public String doFactorial(String inputValue)
 	{
+		recursionTimer.startTimer();
 		calculatedValue = "The factorial of " + inputValue + " is " + Integer.toString(mathTool.getFactorialNumber(Integer.parseInt(inputValue)));
+		recursionTimer.stopTimer();
 		
 		return calculatedValue;
 	}
 	
 	public String timingInfo()
 	{
-		return myTimer.toString();
+		return recursionTimer.toString();
 	}
 }

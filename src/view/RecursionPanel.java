@@ -49,6 +49,9 @@ public class RecursionPanel extends JPanel
 		resultsArea.setWrapStyleWord(true);
 		resultsArea.setLineWrap(true);
 		resultsArea.setEditable(false);
+		timerLabel.setWrapStyleWord(true);
+		timerLabel.setLineWrap(true);
+		timerLabel.setEditable(false);
 		resultsArea.setText(baseController.getCalculatedValue());
 	}
 	private void setupLayout()
