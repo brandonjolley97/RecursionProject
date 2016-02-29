@@ -4,7 +4,7 @@ public class RecursionTool
 {
 	
 	
-	public int getFibNum(int position)
+	public int getFibNumber(int position)
 	{
 		//Defensive code against user evilness
 		if(position  <0)
@@ -19,7 +19,7 @@ public class RecursionTool
 		}
 		else //Recursive case - We must keep calling the method.
 		{
-			return getFibNum(position - 1) + getFibNum(position - 2);
+			return getFibNumber(position - 1) + getFibNumber(position - 2);
 		}
 	}
 	

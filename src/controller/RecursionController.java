@@ -23,7 +23,7 @@ public class RecursionController
 	
 	public void start()
 	{
-		calculatedValue = Integer.toString(mathTool.getFibNum(0));
+		calculatedValue = Integer.toString(mathTool.getFibNumber(0));
 	}
 	
 	public String getCalculatedValue()
@@ -36,7 +36,7 @@ public class RecursionController
 
 		recursionTimer.startTimer();
 
-		calculatedValue = "The Fibonacci sequence number of " + inputValue + " is " + Integer.toString(mathTool.getFibNum(Integer.parseInt(inputValue)));
+		calculatedValue = "The Fibonacci sequence number of " + inputValue + " is " + Integer.toString(mathTool.getFibNumber(Integer.parseInt(inputValue)));
 		recursionTimer.stopTimer();
 		
 		
